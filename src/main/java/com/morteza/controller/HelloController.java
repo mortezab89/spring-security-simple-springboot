@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HelloController {
 
-    @GetMapping("/")
+    @GetMapping(value = {"/", "/welcome"})
     @ResponseBody
     public String defaulty(){
         return "hello";
@@ -26,27 +26,43 @@ public class HelloController {
 //
 //    }
 
-    @RequestMapping(value = "/admin**", method = RequestMethod.GET)
-    public ModelAndView adminPage() {
+//    @RequestMapping(value = "/admin**", method = RequestMethod.GET)
+//    public ModelAndView adminPage() {
+//
+//        ModelAndView model = new ModelAndView();
+//        model.addObject("title", "Spring Security Hello World");
+//        model.addObject("message", "This is protected page - Admin Page!");
+//        model.setViewName("admin");
+//
+//        return model;
+//
+//    }
 
-        ModelAndView model = new ModelAndView();
-        model.addObject("title", "Spring Security Hello World");
-        model.addObject("message", "This is protected page - Admin Page!");
-        model.setViewName("admin");
+    @GetMapping(value = "/admin**")
+    @ResponseBody
+    public String adminPage() {
 
-        return model;
+        return "admin";
 
     }
 
-    @RequestMapping(value = "/dba**", method = RequestMethod.GET)
-    public ModelAndView dbaPage() {
+//    @RequestMapping(value = "/dba**", method = RequestMethod.GET)
+//    public ModelAndView dbaPage() {
+//
+//        ModelAndView model = new ModelAndView();
+//        model.addObject("title", "Spring Security Hello World");
+//        model.addObject("message", "This is protected page - Database Page!");
+//        model.setViewName("admin");
+//
+//        return model;
+//
+//    }
 
-        ModelAndView model = new ModelAndView();
-        model.addObject("title", "Spring Security Hello World");
-        model.addObject("message", "This is protected page - Database Page!");
-        model.setViewName("admin");
+    @GetMapping(value = "/dba**")
+    @ResponseBody
+    public String dbaPage() {
 
-        return model;
+        return "dba";
 
     }
 
